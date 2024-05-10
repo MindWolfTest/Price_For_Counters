@@ -18,9 +18,9 @@ public class DataProcessing
 
 
 
-    public static DataProcessing priceHotWaterInBathroom(Data data)
+    public double priceHotWaterInBathroom(Data data)
     {
-        return new DataProcessing((data.getNewCounterHotWaterInBathroom() -
+        return ((data.getNewCounterHotWaterInBathroom() -
                 data.getLastCounterHotWaterInTheBathroom())*TAX_FOR_HOT_WATER);
     }
 

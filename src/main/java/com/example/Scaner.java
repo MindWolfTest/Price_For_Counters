@@ -7,64 +7,57 @@ import java.util.Scanner;
 public class Scaner
 {
     Scanner scanner = new Scanner(System.in);
-    Data data = new Data();
+    //Data data = new Data();
 
-    public Scaner enterYear()
+    public int enterYear()
     {
         System.out.print("Введи год:\t");
-        int year = scanner.nextInt();
-        data.setYear(year);
+        //data.setYear(year);
         //System.out.println(data.getYear());
-        return this;
+        return scanner.nextInt();
     }
 
-    public Scaner enterMonth()
+    public String enterMonth()
     {
         System.out.print("\nВведи месяц:\t");
-        String month = scanner.next();
-        data.setMonth(month);
+        //data.setMonth(month);
         //System.out.println(data.getMonth());
-        return this;
+        return scanner.next();
     }
 
-    public Scaner enterNewDataCounterHotWaterInBathroom()
+    public double enterNewDataCounterHotWaterInBathroom()
     {
         System.out.print("\nВведи показания счетчика за горячую воду в ванной:\t");
-        double newCounterHotWaterInBathroom = scanner.nextDouble();
-        data.setNewCounterHotWaterInBathroom(newCounterHotWaterInBathroom);
+        //data.setNewCounterHotWaterInBathroom(newCounterHotWaterInBathroom);
         //System.out.println(data.getNewCounterHotWaterInBathroom());
-        return this;
+        return scanner.nextDouble();
     }
 
-    public Scaner enterNewDataCounterColdWaterInBathroom()
+    public double enterNewDataCounterColdWaterInBathroom()
     {
         System.out.print("\nВведи показания счетчика за холодную воду в ванной:\t");
-        double newCounterColdWaterInBathroom = scanner.nextDouble();
-        data.setNewCounterColdWaterInBathroom(newCounterColdWaterInBathroom);
-        return this;
+        //data.setNewCounterColdWaterInBathroom(newCounterColdWaterInBathroom);
+        return scanner.nextDouble();
     }
 
-    public Scaner enterNewDataCounterHotWaterInKitchen()
+    public double enterNewDataCounterHotWaterInKitchen()
     {
         System.out.print("\nВведи показания счетчика за горячую воду на кухне:\t");
-        double newCounterHotWaterInKitchen = scanner.nextDouble();
-        data.setNewCounterHotWaterInKitchen(newCounterHotWaterInKitchen);
-        return this;
+        //data.setNewCounterHotWaterInKitchen(newCounterHotWaterInKitchen);
+        return scanner.nextDouble();
     }
 
-    public Scaner enterNewDataCounterColdWaterInKitchen()
+    public double enterNewDataCounterColdWaterInKitchen()
     {
         System.out.print("\nВведи показания счетчика за холодную воду на кухне:\t");
-        double newCounterColdWaterInKitchen = scanner.nextDouble();
-        data.setNewCounterColdWaterInKitchen(newCounterColdWaterInKitchen);
-        return this;
+        //data.setNewCounterColdWaterInKitchen(newCounterColdWaterInKitchen);
+        return scanner.nextDouble();
     }
 
-    public Scaner enterNewDataEnergyCounter()
+    public double enterNewDataEnergyCounter()
     {
         System.out.print("\nВведи показания счетчика за электричество:\t");
-        double newEnergyCounter = scanner.nextDouble();
-        data.setNewEnergyCounter(newEnergyCounter);
-        return this;
+        //data.setNewEnergyCounter(newEnergyCounter);
+        return scanner.nextDouble();
     }
 }

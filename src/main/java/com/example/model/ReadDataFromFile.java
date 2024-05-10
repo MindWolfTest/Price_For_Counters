@@ -4,60 +4,175 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static com.example.constants.ConstForCell.LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM;
-import static com.example.constants.ConstForCell.NUMBER_OF_SHEET;
+import static com.example.constants.ConstForCell.*;
 import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
-import static org.apache.poi.xslf.usermodel.XSLFTableStyle.TablePartStyle.lastRow;
 
 public class ReadDataFromFile
 {
-    Data data =new Data();
-    public ReadDataFromFile getNumberOfLastRow() throws IOException
+
+    Data dataRow =new Data();
+    public int getNumberOfLastRow() throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         int lastRow = wb.getSheetAt(NUMBER_OF_SHEET).getLastRowNum();
-        data.setLastRow(lastRow);
+        dataRow.setLastRow(lastRow);
 
         fileInputStream.close();
         //System.out.println(data.getLastRow());
-        return this;
+        return lastRow;
     }
 
-    public ReadDataFromFile getNumberOfNewRow() throws IOException
+    public int getNumberOfNewRow() throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         int newRow = wb.getSheetAt(NUMBER_OF_SHEET).getLastRowNum() + 1;
-        data.setNewRow(newRow);
 
         fileInputStream.close();
-        //System.out.println(data.getNewRow());
-        return this;
+
+        return newRow;
     }
 
-    public double getDataFromCell(Data data)
+    public double getDataFromCellLastCounter(int cellNum) throws IOException
     {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
         try
         {
-            FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
-            Workbook wb = new XSSFWorkbook(fileInputStream);
-            double lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
-                    .getRow(data.getLastRow())
-                    .getCell(LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM)
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(cellNum)
                     .getNumericCellValue();
-            data.setLastCounterHotWaterInTheBathroom(lastDataFromCounter);
 
             fileInputStream.close();
-            return lastDataFromCounter;
-        } catch (IOException e)
-        {
-            throw new RuntimeException(e);
+
         }
 
+        catch (Exception e)
+        {
+            fileInputStream.close();
 
+        }
+        return lastDataFromCounter;
+    }
+
+    public double getDataFromCellLastCounterHotWaterInBathroom() throws IOException
+    {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
+        try
+        {
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM)
+                    .getNumericCellValue();
+
+            fileInputStream.close();
+
+        }
+
+        catch (Exception e)
+        {
+            fileInputStream.close();
+
+        }
+        return lastDataFromCounter;
+    }
+
+    public double getDataFromCellLastCounterColdWaterInBathroom() throws IOException
+    {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
+        try
+        {
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_BATHROOM)
+                    .getNumericCellValue();
+
+            fileInputStream.close();
+            
+        }
+
+        catch (Exception e)
+        {
+            fileInputStream.close();            
+        }
+        return lastDataFromCounter;
+    }
+
+    public double getDataFromCellLastCounterHotWaterInKitchen() throws IOException
+    {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
+        try
+        {
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_KITCHEN)
+                    .getNumericCellValue();
+
+            fileInputStream.close();
+
+        }
+
+        catch (Exception e)
+        {
+            fileInputStream.close();
+        }
+        return lastDataFromCounter;
+    }
+
+    public double getDataFromCellLastCounterColdWaterInKitchen() throws IOException
+    {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
+        try
+        {
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_KITCHEN)
+                    .getNumericCellValue();
+
+            fileInputStream.close();
+
+        }
+
+        catch (Exception e)
+        {
+            fileInputStream.close();
+        }
+        return lastDataFromCounter;
+    }
+
+    public double getDataFromCellLastEnergyCounter() throws IOException
+    {
+        FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
+        Workbook wb = new XSSFWorkbook(fileInputStream);
+        double lastDataFromCounter = 0;
+        try
+        {
+            lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
+                    .getRow(dataRow.getLastRow())
+                    .getCell(NUMBER_OF_CELL_COUNTER_ENERGY)
+                    .getNumericCellValue();
+
+            fileInputStream.close();
+
+        }
+
+        catch (Exception e)
+        {
+            fileInputStream.close();
+        }
+        return lastDataFromCounter;
     }
 }

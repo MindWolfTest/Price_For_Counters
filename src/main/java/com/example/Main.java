@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.model.Data;
 import com.example.model.DataProcessing;
 import com.example.model.ReadDataFromFile;
 import com.example.model.WriteDataToFile;
@@ -9,6 +10,7 @@ import java.util.Scanner;
 
 import static com.example.constants.ConstForCell.*;
 import static com.example.constants.ConstForTax.*;
+import static com.example.edit.EditData.createData;
 
 
 public class Main
@@ -131,24 +133,47 @@ public class Main
         System.out.print("\nОбщая стоимость:\t" + priceForAllCounters);
 
          */
+
         ReadDataFromFile readDataFromFile = new ReadDataFromFile();
-        readDataFromFile
-                .getNumberOfLastRow()
-                .getNumberOfNewRow();
+        readDataFromFile.getNumberOfLastRow();
+
+        readDataFromFile.getNumberOfNewRow();
 
 
-        DataProcessing dataProcessing =new DataProcessing();
-        dataProcessing.priceHotWaterInBathroom();
+//        DataProcessing dataProcessing =new DataProcessing();
+//        dataProcessing.priceHotWaterInBathroom();
 
-        Scaner scaner =new Scaner();
+        /*Scaner scaner =new Scaner();
 
         scaner
-                .enterYear()
-                .enterMonth()
+                .enterYear();
+                /*.enterMonth()
                 .enterNewDataCounterHotWaterInBathroom()
                 .enterNewDataCounterColdWaterInBathroom()
                 .enterNewDataCounterHotWaterInKitchen()
                 .enterNewDataCounterColdWaterInKitchen()
-                .enterNewDataEnergyCounter();
+                .enterNewDataEnergyCounter();*/
+
+        Data data = createData();
+//        System.out.println(data.getLastRow());
+//        System.out.println(data.getNewRow());
+//        System.out.println(data.getLastCounterHotWaterInTheBathroom());
+//        System.out.println(data.getLastCounterColdWaterInTheBathroom());
+//        System.out.println(data.getLastCounterHotWaterInTheKitchen());
+//        System.out.println(data.getLastCounterColdWaterInTheKitchen());
+//        System.out.println(data.getLastEnergyCounter());
+
+//        System.out.println(data.getYear());
+//        System.out.println(data.getLastRow());
+//        System.out.println(data.getNewRow());
+//        System.out.println(data.getMonth());
+//        System.out.println(data.getNewCounterHotWaterInBathroom());
+//        System.out.println(data.getNewCounterColdWaterInBathroom());
+//        System.out.println(data.getNewCounterHotWaterInKitchen());
+//        System.out.println(data.getNewCounterColdWaterInKitchen());
+//        System.out.println(data.getNewEnergyCounter());
+        DataProcessing dataProcessing =new DataProcessing();
+        System.out.println(dataProcessing.priceHotWaterInBathroom(data));
+
     }
 }
