@@ -23,13 +23,13 @@ public class EditData
                 .lastCounterHotWaterInTheKitchen(readDataFromFile.getDataFromCellLastCounter(NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_KITCHEN))
                 .lastCounterColdWaterInTheKitchen(readDataFromFile.getDataFromCellLastCounter(NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_KITCHEN))
                 .lastEnergyCounter(readDataFromFile.getDataFromCellLastCounter(NUMBER_OF_CELL_COUNTER_ENERGY))
-//                .year(scaner.enterYear())
-//                .month(scaner.enterMonth())
+                .year(scaner.enterYear())
+                .month(scaner.enterMonth())
                 .newCounterHotWaterInBathroom(scaner.enterNewDataCounterHotWaterInBathroom())
-//                .newCounterColdWaterInBathroom(scaner.enterNewDataCounterColdWaterInBathroom())
-//                .newCounterHotWaterInKitchen(scaner.enterNewDataCounterHotWaterInKitchen())
-//                .newCounterColdWaterInKitchen(scaner.enterNewDataCounterColdWaterInKitchen())
-//                .newEnergyCounter(scaner.enterNewDataEnergyCounter())
+                .newCounterColdWaterInBathroom(scaner.enterNewDataCounterColdWaterInBathroom())
+                .newCounterHotWaterInKitchen(scaner.enterNewDataCounterHotWaterInKitchen())
+                .newCounterColdWaterInKitchen(scaner.enterNewDataCounterColdWaterInKitchen())
+                .newEnergyCounter(scaner.enterNewDataEnergyCounter())
                 .build();
     }
 }

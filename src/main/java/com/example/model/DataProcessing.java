@@ -24,40 +24,46 @@ public class DataProcessing
                 data.getLastCounterHotWaterInTheBathroom())*TAX_FOR_HOT_WATER);
     }
 
-    public static DataProcessing priceColdWaterInBathroom(Data data)
+    public double priceColdWaterInBathroom(Data data)
     {
-        return new DataProcessing((data.getNewCounterColdWaterInBathroom()-
+        return ((data.getNewCounterColdWaterInBathroom()-
                 data.getLastCounterColdWaterInTheBathroom())*TAX_FOR_COLD_WATER);
     }
 
-    public static DataProcessing priceHotWaterInKitchen(Data data)
+    public double priceHotWaterInKitchen(Data data)
     {
-        return new DataProcessing((data.getNewCounterHotWaterInKitchen() -
+        return ((data.getNewCounterHotWaterInKitchen() -
                 data.getLastCounterHotWaterInTheKitchen()*TAX_FOR_HOT_WATER));
     }
 
-    public static DataProcessing priceColdWaterInKitchen(Data data)
+    public double priceColdWaterInKitchen(Data data)
     {
-        return new DataProcessing((data.getNewCounterColdWaterInKitchen() -
+        return ((data.getNewCounterColdWaterInKitchen() -
                 data.getLastCounterColdWaterInTheKitchen())*TAX_FOR_COLD_WATER);
     }
 
-    public static DataProcessing usedWaterCounter(Data data)
+    public double usedWaterCounter(Data data)
     {
-        return new DataProcessing((data.getNewCounterHotWaterInBathroom() - data.getLastCounterHotWaterInTheBathroom()) +
+        return ((data.getNewCounterHotWaterInBathroom() - data.getLastCounterHotWaterInTheBathroom()) +
                 (data.getNewCounterColdWaterInBathroom() - data.getLastCounterColdWaterInTheBathroom()) +
                 (data.getNewCounterHotWaterInKitchen() - data.getLastCounterHotWaterInTheKitchen()) +
                 (data.getNewCounterColdWaterInKitchen() - data.getLastCounterColdWaterInTheKitchen()));
     }
 
-    public static DataProcessing priceForEnergy(Data data)
+    public double priceForEnergy(Data data)
     {
-        return new DataProcessing((data.getNewEnergyCounter() -
+        return ((data.getNewEnergyCounter() -
                 data.getLastEnergyCounter())*TAX_FOR_ENERGY);
     }
 
-    public static DataProcessing priceForWaterDrainage(Data data)
+    public double priceForWaterDrainage(Data data)
     {
-        return new DataProcessing(data.getUsedWater()*TAX_FOR_WATER_DRAINAGE);
+        return (usedWaterCounter(data)*TAX_FOR_WATER_DRAINAGE);
+    }
+
+    public double totalPrice(Data data)
+    {
+        return priceHotWaterInBathroom(data) + priceColdWaterInBathroom(data) + priceHotWaterInKitchen(data)
+                + priceColdWaterInKitchen(data) + priceForEnergy(data) + priceForWaterDrainage(data);
     }
 }
