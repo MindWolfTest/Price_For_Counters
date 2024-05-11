@@ -1,6 +1,5 @@
 package com.example.write;
 
-
 import com.example.model.Data;
 import com.example.model.DataProcessing;
 import org.apache.poi.ss.usermodel.Cell;
@@ -16,8 +15,6 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteDataForBathroom
 {
-
-
 
     public WriteDataForBathroom writeLastDataHotWaterCounterInBathroom(Data data) throws IOException
     {
@@ -120,6 +117,4 @@ public class WriteDataForBathroom
         fos.close();
         return this;
     }
-
-
 }
