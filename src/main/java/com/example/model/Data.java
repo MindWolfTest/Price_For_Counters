@@ -31,10 +31,4 @@ public class Data
 
     private double lastEnergyCounter;
     private double newEnergyCounter;
-
-    private double usedWater;
-    /*private double
-
-    private double
-    private double*/
 }

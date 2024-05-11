@@ -33,7 +33,7 @@ public class DataProcessing
     public double priceHotWaterInKitchen(Data data)
     {
         return ((data.getNewCounterHotWaterInKitchen() -
-                data.getLastCounterHotWaterInTheKitchen()*TAX_FOR_HOT_WATER));
+                data.getLastCounterHotWaterInTheKitchen())*TAX_FOR_HOT_WATER);
     }
 
     public double priceColdWaterInKitchen(Data data)
