@@ -18,7 +18,6 @@ public class Main
         DataProcessing dataProcessing =new DataProcessing();
 
         WriteYearMonth writeYearMonth = new WriteYearMonth();
-
         writeYearMonth
                 .yearWritingToFile(data)
                 .writeMonthToCell(data);
