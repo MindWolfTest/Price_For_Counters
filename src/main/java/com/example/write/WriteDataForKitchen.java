@@ -24,7 +24,7 @@ public class WriteDataForKitchen
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
         Row row = sheet.getRow(data.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_KITCHEN);
-        dataCell.setCellValue(data.getLastCounterHotWaterInTheKitchen());
+        dataCell.setCellValue(data.getLastCounterHotWaterInKitchen());
 
         fileInputStream.close();
 
@@ -75,7 +75,7 @@ public class WriteDataForKitchen
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
         Row row = sheet.getRow(data.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_KITCHEN);
-        dataCell.setCellValue(data.getLastCounterColdWaterInTheKitchen());
+        dataCell.setCellValue(data.getLastCounterColdWaterInKitchen());
 
         fileInputStream.close();
 

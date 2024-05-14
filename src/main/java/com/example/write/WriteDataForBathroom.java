@@ -23,7 +23,7 @@ public class WriteDataForBathroom
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
         Row row = sheet.getRow(data.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getLastCounterHotWaterInTheBathroom());
+        dataCell.setCellValue(data.getLastCounterHotWaterInBathroom());
 
         fileInputStream.close();
 
@@ -74,7 +74,7 @@ public class WriteDataForBathroom
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
         Row row = sheet.getRow(data.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getLastCounterColdWaterInTheBathroom());
+        dataCell.setCellValue(data.getLastCounterColdWaterInBathroom());
 
         fileInputStream.close();
 

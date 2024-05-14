@@ -17,16 +17,16 @@ public class Data
     private int year;
     private String month;
 
-    private double lastCounterHotWaterInTheBathroom;
+    private double lastCounterHotWaterInBathroom;
     private double newCounterHotWaterInBathroom;
 
-    private double lastCounterColdWaterInTheBathroom;
+    private double lastCounterColdWaterInBathroom;
     private double newCounterColdWaterInBathroom;
 
-    private double lastCounterHotWaterInTheKitchen;
+    private double lastCounterHotWaterInKitchen;
     private double newCounterHotWaterInKitchen;
 
-    private double lastCounterColdWaterInTheKitchen;
+    private double lastCounterColdWaterInKitchen;
     private double newCounterColdWaterInKitchen;
 
     private double lastEnergyCounter;
