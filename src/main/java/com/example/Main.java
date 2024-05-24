@@ -1,59 +1,40 @@
 package com.example;
 
-import com.example.model.Data;
-import com.example.model.DataProcessing;
-import com.example.write.*;
+import com.example.model.LastData;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import static com.example.edit.EditData.createData;
+import static com.example.edit.GetLastData.createLastData;
+import static com.example.frames.Frame.getFrame;
 
 
 public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        Data data = createData();
-
-        DataProcessing dataProcessing =new DataProcessing();
-
-        WriteYearMonth writeYearMonth = new WriteYearMonth();
-        writeYearMonth
-                .yearWritingToFile(data)
-                .writeMonthToCell(data);
-
-        WriteTotalPrice writeTotalPrice = new WriteTotalPrice();
-        writeTotalPrice
-                .writeTotalPrice(data, dataProcessing);
-
-        WriteDataForBathroom writeDataForBathroom = new WriteDataForBathroom();
-        writeDataForBathroom
-                .writeLastDataHotWaterCounterInBathroom(data)
-                .writeNewDataHotWaterCounterInBathroom(data)
-                .writePriceForHotWaterInBathroom(data, dataProcessing)
-                .writeLastDataColdWaterCounterInBathroom(data)
-                .writeNewDataColdWaterCounterInBathroom(data)
-                .writePriceForColdWaterInBathroom(data, dataProcessing);
-
-        WriteDataForKitchen writeDataForKitchen = new WriteDataForKitchen();
-        writeDataForKitchen
-                .writeLastDataHotWaterCounterInKitchen(data)
-                .writeNewDataHotWaterCounterInKitchen(data)
-                .writePriceForHotWaterInKitchen(data, dataProcessing)
-                .writeLastDataColdWaterCounterInKitchen(data)
-                .writeNewDataColdWaterCounterInKitchen(data)
-                .writePriceForColdWaterInKitchen(data, dataProcessing);
-
-        WriteDataForWaterDrainage writeDataForWaterDrainage = new WriteDataForWaterDrainage();
-        writeDataForWaterDrainage
-                .writeUsedWaterCounter(data, dataProcessing)
-                .writePriceForWaterDrainage(data, dataProcessing);
-
-        WriteDataForEnergy writeDataForEnergy = new WriteDataForEnergy();
-        writeDataForEnergy
-                .writeLastDataEnergyCounter(data)
-                .writeNewDataEnergyCounter(data)
-                .writePriceForEnergy(data, dataProcessing);
-        System.out.println("Итоговая стоимость:\t" + dataProcessing.totalPrice(data));
+        JFrame jFrame = getFrame();
+        JPanel jPanel = new JPanel();
+        jFrame.add(jPanel);
+        JButton createData = new JButton("Заполнить таблицу");
+        jPanel.add(createData);
+        createData.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                WriteData writeData =new WriteData();
+                try
+                {
+                    LastData lastData = createLastData();;
+                    writeData.writeData(lastData);
+                } catch (IOException ex)
+                {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
 }

@@ -1,6 +1,6 @@
 package com.example.write;
 
-import com.example.model.Data;
+import com.example.model.LastData;
 import com.example.model.DataProcessing;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,14 +17,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteDataForWaterDrainage
 {
-    public WriteDataForWaterDrainage writeUsedWaterCounter(Data data, DataProcessing dataProcessing) throws IOException
+    public WriteDataForWaterDrainage writeUsedWaterCounter(LastData lastData, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_WATER_DRAINAGE);
-        dataCell.setCellValue(dataProcessing.usedWaterCounter(data));
+        dataCell.setCellValue(dataProcessing.usedWaterCounter(lastData));
 
         fileInputStream.close();
 
@@ -34,14 +34,14 @@ public class WriteDataForWaterDrainage
         return this;
     }
 
-    public WriteDataForWaterDrainage writePriceForWaterDrainage(Data data, DataProcessing dataProcessing) throws IOException
+    public WriteDataForWaterDrainage writePriceForWaterDrainage(LastData lastData, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_PRICE_FOR_WATER_DRAINAGE);
-        dataCell.setCellValue(dataProcessing.priceForWaterDrainage(data));
+        dataCell.setCellValue(dataProcessing.priceForWaterDrainage(lastData));
 
         fileInputStream.close();
 

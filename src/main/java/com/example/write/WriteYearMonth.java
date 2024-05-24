@@ -1,6 +1,6 @@
 package com.example.write;
 
-import com.example.model.Data;
+import com.example.model.LastData;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -16,14 +16,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteYearMonth
 {
-    public WriteYearMonth yearWritingToFile(Data data) throws IOException
+    public WriteYearMonth yearWritingToFile(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.createRow(data.getNewRow());
+        Row row = sheet.createRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_YEAR);
-        dataCell.setCellValue(data.getYear());
+        dataCell.setCellValue(lastData.getYear());
 
         fileInputStream.close();
 
@@ -33,14 +33,14 @@ public class WriteYearMonth
         return this;
     }
 
-    public WriteYearMonth writeMonthToCell(Data data) throws IOException
+    public WriteYearMonth writeMonthToCell(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_MONTH);
-        dataCell.setCellValue(data.getMonth());
+        dataCell.setCellValue(lastData.getMonth());
 
         fileInputStream.close();
 

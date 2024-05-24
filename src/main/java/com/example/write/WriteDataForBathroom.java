@@ -1,6 +1,6 @@
 package com.example.write;
 
-import com.example.model.Data;
+import com.example.model.LastData;
 import com.example.model.DataProcessing;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,14 +16,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 public class WriteDataForBathroom
 {
 
-    public WriteDataForBathroom writeLastDataHotWaterCounterInBathroom(Data data) throws IOException
+    public WriteDataForBathroom writeLastDataHotWaterCounterInBathroom(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getLastCounterHotWaterInBathroom());
+        dataCell.setCellValue(lastData.getLastCounterHotWaterInBathroom());
 
         fileInputStream.close();
 
@@ -33,14 +33,14 @@ public class WriteDataForBathroom
         return this;
     }
 
-    public WriteDataForBathroom writeNewDataHotWaterCounterInBathroom(Data data) throws IOException
+    public WriteDataForBathroom writeNewDataHotWaterCounterInBathroom(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getNewCounterHotWaterInBathroom());
+        dataCell.setCellValue(lastData.getNewCounterHotWaterInBathroom());
 
         fileInputStream.close();
 
@@ -50,14 +50,14 @@ public class WriteDataForBathroom
         return this;
     }
 
-    public WriteDataForBathroom writePriceForHotWaterInBathroom(Data data, DataProcessing dataProcessing) throws IOException
+    public WriteDataForBathroom writePriceForHotWaterInBathroom(LastData lastData, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_PRICE_FOR_HOT_WATER_IN_BATHROOM);
-        dataCell.setCellValue(dataProcessing.priceHotWaterInBathroom(data));
+        dataCell.setCellValue(dataProcessing.priceHotWaterInBathroom(lastData));
 
         fileInputStream.close();
 
@@ -67,14 +67,14 @@ public class WriteDataForBathroom
         return this;
     }
 
-    public WriteDataForBathroom writeLastDataColdWaterCounterInBathroom(Data data) throws IOException
+    public WriteDataForBathroom writeLastDataColdWaterCounterInBathroom(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getLastCounterColdWaterInBathroom());
+        dataCell.setCellValue(lastData.getLastCounterColdWaterInBathroom());
 
         fileInputStream.close();
 
@@ -84,14 +84,14 @@ public class WriteDataForBathroom
         return this;
     }
 
-    public WriteDataForBathroom writeNewDataColdWaterCounterInBathroom(Data data) throws IOException
+    public WriteDataForBathroom writeNewDataColdWaterCounterInBathroom(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_BATHROOM);
-        dataCell.setCellValue(data.getNewCounterColdWaterInBathroom());
+        dataCell.setCellValue(lastData.getNewCounterColdWaterInBathroom());
 
         fileInputStream.close();
 
@@ -101,14 +101,14 @@ public class WriteDataForBathroom
         return this;
     }
 
-    public WriteDataForBathroom writePriceForColdWaterInBathroom(Data data, DataProcessing dataProcessing) throws IOException
+    public WriteDataForBathroom writePriceForColdWaterInBathroom(LastData lastData, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_PRICE_FOR_COLD_WATER_IN_BATHROOM);
-        dataCell.setCellValue(dataProcessing.priceColdWaterInBathroom(data));
+        dataCell.setCellValue(dataProcessing.priceColdWaterInBathroom(lastData));
 
         fileInputStream.close();
 

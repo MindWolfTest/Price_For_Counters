@@ -12,13 +12,13 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 public class ReadDataFromFile
 {
 
-    Data dataRow =new Data();
+    LastData lastDataRow =new LastData();
     public int getNumberOfLastRow() throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         int lastRow = wb.getSheetAt(NUMBER_OF_SHEET).getLastRowNum();
-        dataRow.setLastRow(lastRow);
+        lastDataRow.setLastRow(lastRow);
 
         fileInputStream.close();
         return lastRow;
@@ -42,7 +42,7 @@ public class ReadDataFromFile
         try
         {
             lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
-                    .getRow(dataRow.getLastRow())
+                    .getRow(lastDataRow.getLastRow())
                     .getCell(cellNum)
                     .getNumericCellValue();
 

@@ -7,9 +7,9 @@ import static com.example.constants.ConstForTax.*;
 
 public class DataProcessing
 {
-    public double priceHotWaterInBathroom(Data data)
+    public double priceHotWaterInBathroom(LastData lastData)
     {
-        double price =  (data.getNewCounterHotWaterInBathroom() - data.getLastCounterHotWaterInBathroom()) * TAX_FOR_HOT_WATER;
+        double price =  (lastData.getNewCounterHotWaterInBathroom() - lastData.getLastCounterHotWaterInBathroom()) * TAX_FOR_HOT_WATER;
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -18,9 +18,9 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double priceColdWaterInBathroom(Data data)
+    public double priceColdWaterInBathroom(LastData lastData)
     {
-        double price = (data.getNewCounterColdWaterInBathroom() - data.getLastCounterColdWaterInBathroom()) * TAX_FOR_COLD_WATER;
+        double price = (lastData.getNewCounterColdWaterInBathroom() - lastData.getLastCounterColdWaterInBathroom()) * TAX_FOR_COLD_WATER;
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -29,9 +29,9 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double priceHotWaterInKitchen(Data data)
+    public double priceHotWaterInKitchen(LastData lastData)
     {
-        double price  =  (data.getNewCounterHotWaterInKitchen() - data.getLastCounterHotWaterInKitchen()) * TAX_FOR_HOT_WATER;
+        double price  =  (lastData.getNewCounterHotWaterInKitchen() - lastData.getLastCounterHotWaterInKitchen()) * TAX_FOR_HOT_WATER;
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -40,9 +40,9 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double priceColdWaterInKitchen(Data data)
+    public double priceColdWaterInKitchen(LastData lastData)
     {
-        double price = ((data.getNewCounterColdWaterInKitchen() - data.getLastCounterColdWaterInKitchen()) * TAX_FOR_COLD_WATER);
+        double price = ((lastData.getNewCounterColdWaterInKitchen() - lastData.getLastCounterColdWaterInKitchen()) * TAX_FOR_COLD_WATER);
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -51,17 +51,17 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double usedWaterCounter(Data data)
+    public double usedWaterCounter(LastData lastData)
     {
-        return ((data.getNewCounterHotWaterInBathroom() - data.getLastCounterHotWaterInBathroom())
-                + (data.getNewCounterColdWaterInBathroom() - data.getLastCounterColdWaterInBathroom())
-                + (data.getNewCounterHotWaterInKitchen() - data.getLastCounterHotWaterInKitchen())
-                + (data.getNewCounterColdWaterInKitchen() - data.getLastCounterColdWaterInKitchen()));
+        return ((lastData.getNewCounterHotWaterInBathroom() - lastData.getLastCounterHotWaterInBathroom())
+                + (lastData.getNewCounterColdWaterInBathroom() - lastData.getLastCounterColdWaterInBathroom())
+                + (lastData.getNewCounterHotWaterInKitchen() - lastData.getLastCounterHotWaterInKitchen())
+                + (lastData.getNewCounterColdWaterInKitchen() - lastData.getLastCounterColdWaterInKitchen()));
     }
 
-    public double priceForWaterDrainage(Data data)
+    public double priceForWaterDrainage(LastData lastData)
     {
-        double price = usedWaterCounter(data) * TAX_FOR_WATER_DRAINAGE;
+        double price = usedWaterCounter(lastData) * TAX_FOR_WATER_DRAINAGE;
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -70,9 +70,9 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double priceForEnergy(Data data)
+    public double priceForEnergy(LastData lastData)
     {
-        double price =  (data.getNewEnergyCounter() - data.getLastEnergyCounter()) * TAX_FOR_ENERGY;
+        double price =  (lastData.getNewEnergyCounter() - lastData.getLastEnergyCounter()) * TAX_FOR_ENERGY;
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);
@@ -81,10 +81,10 @@ public class DataProcessing
         return bigDecimal.doubleValue();
     }
 
-    public double totalPrice(Data data)
+    public double totalPrice(LastData lastData)
     {
-        double price = priceHotWaterInBathroom(data) + priceColdWaterInBathroom(data) + priceHotWaterInKitchen(data)
-                + priceColdWaterInKitchen(data) + priceForEnergy(data) + priceForWaterDrainage(data);
+        double price = priceHotWaterInBathroom(lastData) + priceColdWaterInBathroom(lastData) + priceHotWaterInKitchen(lastData)
+                + priceColdWaterInKitchen(lastData) + priceForEnergy(lastData) + priceForWaterDrainage(lastData);
 
         int scale = 2;
         BigDecimal bigDecimal = new BigDecimal(price);

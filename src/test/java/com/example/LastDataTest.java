@@ -1,20 +1,20 @@
 package com.example;
 
-import com.example.model.Data;
+import com.example.model.LastData;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class DataTest
+public class LastDataTest
 {
-    Data data = new Data();
+    LastData lastData = new LastData();
 
     @Test
     public void setGetLastRowTest()
     {
-        data.setLastRow(24);
+        lastData.setLastRow(24);
 
-        int actualResult = data.getLastRow();
+        int actualResult = lastData.getLastRow();
         int expectedResult = 24;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
@@ -23,9 +23,9 @@ public class DataTest
     @Test
     public void setGetNewRowTest()
     {
-        data.setNewRow(12);
+        lastData.setNewRow(12);
 
-        int actualResult = data.getNewRow();
+        int actualResult = lastData.getNewRow();
         int expectedResult = 12;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
@@ -34,9 +34,9 @@ public class DataTest
     @Test
     public void setGetYearTest()
     {
-        data.setYear(2021);
+        lastData.setYear(2021);
 
-        int actualResult = data.getYear();
+        int actualResult = lastData.getYear();
         int expectedResult = 2021;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
@@ -45,9 +45,9 @@ public class DataTest
     @Test
     public void setGetMonthTest()
     {
-        data.setMonth("Месяц");
+        lastData.setMonth("Месяц");
 
-        String actualResult = data.getMonth();
+        String actualResult = lastData.getMonth();
         String expectedResult = "Месяц";
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
@@ -56,9 +56,9 @@ public class DataTest
     @Test
     public void setGetLastCounterHotWaterInTheBathroomTest()
     {
-        data.setLastCounterHotWaterInBathroom(212.45);
+        lastData.setLastCounterHotWaterInBathroom(212.45);
 
-        double actualResult = data.getLastCounterHotWaterInBathroom();
+        double actualResult = lastData.getLastCounterHotWaterInBathroom();
         double expectedResult = 212.45;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -67,9 +67,9 @@ public class DataTest
     @Test
     public void setGetNewCounterHotWaterInTheBathroomTest()
     {
-        data.setNewCounterHotWaterInBathroom(212.45);
+        lastData.setNewCounterHotWaterInBathroom(212.45);
 
-        double actualResult = data.getNewCounterHotWaterInBathroom();
+        double actualResult = lastData.getNewCounterHotWaterInBathroom();
         double expectedResult = 212.45;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -78,9 +78,9 @@ public class DataTest
     @Test
     public void setGetNewCounterColdWaterInBathroomTest()
     {
-        data.setNewCounterColdWaterInBathroom(547.54);
+        lastData.setNewCounterColdWaterInBathroom(547.54);
 
-        double actualResult = data.getNewCounterColdWaterInBathroom();
+        double actualResult = lastData.getNewCounterColdWaterInBathroom();
         double expectedResult = 547.54;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -89,9 +89,9 @@ public class DataTest
     @Test
     public void setGetLastCounterColdWaterInBathroomTest()
     {
-        data.setLastCounterColdWaterInBathroom(478.65);
+        lastData.setLastCounterColdWaterInBathroom(478.65);
 
-        double actualResult = data.getLastCounterColdWaterInBathroom();
+        double actualResult = lastData.getLastCounterColdWaterInBathroom();
         double expectedResult = 478.65;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -100,9 +100,9 @@ public class DataTest
     @Test
     public void setGetNewCounterHotWaterInKitchenTest()
     {
-        data.setNewCounterHotWaterInKitchen(548.6475);
+        lastData.setNewCounterHotWaterInKitchen(548.6475);
 
-        double actualResult = data.getNewCounterHotWaterInKitchen();
+        double actualResult = lastData.getNewCounterHotWaterInKitchen();
         double expectedResult = 548.6475;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -111,9 +111,9 @@ public class DataTest
     @Test
     public void setGetLastCounterHotWaterInKitchenTest()
     {
-        data.setLastCounterHotWaterInKitchen(487.56);
+        lastData.setLastCounterHotWaterInKitchen(487.56);
 
-        double actualResult = data.getLastCounterHotWaterInKitchen();
+        double actualResult = lastData.getLastCounterHotWaterInKitchen();
         double expectedResult = 487.56;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -122,9 +122,9 @@ public class DataTest
     @Test
     public void setGetNewCounterColdWaterInKitchenTest()
     {
-        data.setNewCounterColdWaterInKitchen(547.453);
+        lastData.setNewCounterColdWaterInKitchen(547.453);
 
-        double actualResult = data.getNewCounterColdWaterInKitchen();
+        double actualResult = lastData.getNewCounterColdWaterInKitchen();
         double expectedResult = 547.453;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -133,9 +133,9 @@ public class DataTest
     @Test
     public void setGetLastCounterColdWaterInKitchenTest()
     {
-        data.setLastCounterColdWaterInKitchen(421.234);
+        lastData.setLastCounterColdWaterInKitchen(421.234);
 
-        double actualResult = data.getLastCounterColdWaterInKitchen();
+        double actualResult = lastData.getLastCounterColdWaterInKitchen();
         double expectedResult = 421.234;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -144,9 +144,9 @@ public class DataTest
     @Test
     public void setGetNewEnergyCounterTest()
     {
-        data.setNewEnergyCounter(4787.23212);
+        lastData.setNewEnergyCounter(4787.23212);
 
-        double actualResult = data.getNewEnergyCounter();
+        double actualResult = lastData.getNewEnergyCounter();
         double expectedResult = 4787.23212;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
@@ -155,9 +155,9 @@ public class DataTest
     @Test
     public void setGetLastEnergyCounterTest()
     {
-        data.setLastEnergyCounter(4787.8);
+        lastData.setLastEnergyCounter(4787.8);
 
-        double actualResult = data.getLastEnergyCounter();
+        double actualResult = lastData.getLastEnergyCounter();
         double expectedResult = 4787.8;
 
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);

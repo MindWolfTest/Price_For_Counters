@@ -1,6 +1,6 @@
 package com.example.write;
 
-import com.example.model.Data;
+import com.example.model.LastData;
 import com.example.model.DataProcessing;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,14 +17,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteDataForEnergy
 {
-    public WriteDataForEnergy writeLastDataEnergyCounter(Data data) throws IOException
+    public WriteDataForEnergy writeLastDataEnergyCounter(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(LAST_NUMBER_OF_CELL_COUNTER_ENERGY);
-        dataCell.setCellValue(data.getLastEnergyCounter());
+        dataCell.setCellValue(lastData.getLastEnergyCounter());
 
         fileInputStream.close();
 
@@ -34,14 +34,14 @@ public class WriteDataForEnergy
         return this;
     }
 
-    public WriteDataForEnergy writeNewDataEnergyCounter(Data data) throws IOException
+    public WriteDataForEnergy writeNewDataEnergyCounter(LastData lastData) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_COUNTER_ENERGY);
-        dataCell.setCellValue(data.getNewEnergyCounter());
+        dataCell.setCellValue(lastData.getNewEnergyCounter());
 
         fileInputStream.close();
 
@@ -51,14 +51,14 @@ public class WriteDataForEnergy
         return this;
     }
 
-    public WriteDataForEnergy writePriceForEnergy(Data data, DataProcessing dataProcessing) throws IOException
+    public WriteDataForEnergy writePriceForEnergy(LastData lastData, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(data.getNewRow());
+        Row row = sheet.getRow(lastData.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_PRICE_FOR_ENERGY);
-        dataCell.setCellValue(dataProcessing.priceForEnergy(data));
+        dataCell.setCellValue(dataProcessing.priceForEnergy(lastData));
 
         fileInputStream.close();
 

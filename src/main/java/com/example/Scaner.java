@@ -1,12 +1,10 @@
 package com.example;
 
-import com.example.model.Data;
-
 import java.util.Scanner;
 
 public class Scaner
 {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public int enterYear()
     {
