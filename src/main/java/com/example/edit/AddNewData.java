@@ -1,14 +1,15 @@
 package com.example.edit;
 
+import com.example.Scaner;
 import com.example.model.NewData;
 
 import java.io.IOException;
 
-import static com.example.edit.GetLastData.scaner;
 
 public class AddNewData
 {
-    public static NewData createLastData() throws IOException
+    private static Scaner scaner = new Scaner();
+    public static NewData createNewData() throws IOException
     {
         return NewData.builder()
                 .year(scaner.enterYear())

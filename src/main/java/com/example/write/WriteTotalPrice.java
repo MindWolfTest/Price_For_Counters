@@ -2,6 +2,8 @@ package com.example.write;
 
 import com.example.model.LastData;
 import com.example.model.DataProcessing;
+import com.example.model.NewData;
+import com.example.model.RowNumber;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,14 +20,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteTotalPrice
 {
-    public WriteTotalPrice writeTotalPrice(LastData lastData, DataProcessing dataProcessing) throws IOException
+    public WriteTotalPrice writeTotalPrice(LastData lastData, NewData newData, RowNumber rowNumber, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(lastData.getNewRow());
+        Row row = sheet.getRow(rowNumber.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_FULL_PRICE);
-        dataCell.setCellValue(dataProcessing.totalPrice(lastData));
+        dataCell.setCellValue(dataProcessing.totalPrice(lastData, newData));
 
         fileInputStream.close();
 

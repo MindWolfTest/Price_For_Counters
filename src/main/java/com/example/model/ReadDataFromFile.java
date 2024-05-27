@@ -18,7 +18,7 @@ public class ReadDataFromFile
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         int lastRow = wb.getSheetAt(NUMBER_OF_SHEET).getLastRowNum();
-        lastDataRow.setLastRow(lastRow);
+        //lastDataRow.setLastRow(lastRow);
 
         fileInputStream.close();
         return lastRow;
@@ -34,7 +34,7 @@ public class ReadDataFromFile
         return newRow;
     }
 
-    public double getDataFromCellLastCounter(int cellNum) throws IOException
+    public double getDataFromCellLastCounter(int cellNum, RowNumber rowNumber) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
@@ -42,7 +42,7 @@ public class ReadDataFromFile
         try
         {
             lastDataFromCounter = wb.getSheetAt(NUMBER_OF_SHEET)
-                    .getRow(lastDataRow.getLastRow())
+                    .getRow(rowNumber.getLastRow())
                     .getCell(cellNum)
                     .getNumericCellValue();
 

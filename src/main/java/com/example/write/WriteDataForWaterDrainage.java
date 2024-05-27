@@ -2,6 +2,8 @@ package com.example.write;
 
 import com.example.model.LastData;
 import com.example.model.DataProcessing;
+import com.example.model.NewData;
+import com.example.model.RowNumber;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -17,14 +19,14 @@ import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class WriteDataForWaterDrainage
 {
-    public WriteDataForWaterDrainage writeUsedWaterCounter(LastData lastData, DataProcessing dataProcessing) throws IOException
+    public WriteDataForWaterDrainage writeUsedWaterCounter(LastData lastData, NewData newData, RowNumber rowNumber, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(lastData.getNewRow());
+        Row row = sheet.getRow(rowNumber.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_WATER_DRAINAGE);
-        dataCell.setCellValue(dataProcessing.usedWaterCounter(lastData));
+        dataCell.setCellValue(dataProcessing.usedWaterCounter(lastData, newData));
 
         fileInputStream.close();
 
@@ -34,14 +36,14 @@ public class WriteDataForWaterDrainage
         return this;
     }
 
-    public WriteDataForWaterDrainage writePriceForWaterDrainage(LastData lastData, DataProcessing dataProcessing) throws IOException
+    public WriteDataForWaterDrainage writePriceForWaterDrainage(LastData lastData, NewData newData, RowNumber rowNumber, DataProcessing dataProcessing) throws IOException
     {
         FileInputStream fileInputStream = new FileInputStream(FILE_FOLDER);
         Workbook wb = new XSSFWorkbook(fileInputStream);
         Sheet sheet = wb.getSheetAt(NUMBER_OF_SHEET);
-        Row row = sheet.getRow(lastData.getNewRow());
+        Row row = sheet.getRow(rowNumber.getNewRow());
         Cell dataCell = row.createCell(NUMBER_OF_CELL_PRICE_FOR_WATER_DRAINAGE);
-        dataCell.setCellValue(dataProcessing.priceForWaterDrainage(lastData));
+        dataCell.setCellValue(dataProcessing.priceForWaterDrainage(lastData, newData));
 
         fileInputStream.close();
 
