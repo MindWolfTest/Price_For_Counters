@@ -47,27 +47,34 @@ public class Legacy extends JDialog
                     RowNumber rowNumber = createRowNumbers();
                     LastData lastData = createLastData(rowNumber);
 
-                    int year = Integer.parseInt(addYear.getText());
-                    String month = addMonth.getText();
-                    double newDataCounterHotWaterInBathroom = Double.parseDouble(addNewDataHotWaterInBathroom.getText());
-                    double newDataCounterColdWaterInBathroom = Double.parseDouble(addNewDataColdWaterInBathroom.getText());
-                    double newDataCounterHotWaterInKitchen = Double.parseDouble(addNewDataHotWaterInKitchen.getText());
-                    double newDataCounterColdWaterInKitchen = Double.parseDouble(addNewDataColdWaterInKitchen.getText());
-                    double newDataEnergyCounter = Double.parseDouble(addNewEnergyData.getText());
+                    try
+                    {
+                        int year = Integer.parseInt(addYear.getText());
+                        String month = addMonth.getText();
+                        double newDataCounterHotWaterInBathroom = Double.parseDouble(addNewDataHotWaterInBathroom.getText());
+                        double newDataCounterColdWaterInBathroom = Double.parseDouble(addNewDataColdWaterInBathroom.getText());
+                        double newDataCounterHotWaterInKitchen = Double.parseDouble(addNewDataHotWaterInKitchen.getText());
+                        double newDataCounterColdWaterInKitchen = Double.parseDouble(addNewDataColdWaterInKitchen.getText());
+                        double newDataEnergyCounter = Double.parseDouble(addNewEnergyData.getText());
 
-                    NewData newData = createNewData(year, month, newDataCounterHotWaterInBathroom, newDataCounterColdWaterInBathroom,
-                            newDataCounterHotWaterInKitchen, newDataCounterColdWaterInKitchen, newDataEnergyCounter);
-                    writeData.writeData(lastData, newData, rowNumber);
+                        NewData newData = createNewData(year, month, newDataCounterHotWaterInBathroom, newDataCounterColdWaterInBathroom,
+                                newDataCounterHotWaterInKitchen, newDataCounterColdWaterInKitchen, newDataEnergyCounter);
+                        writeData.writeData(lastData, newData, rowNumber);
 
-                    DataProcessing dataProcessing = new DataProcessing();
-                    JOptionPane.showMessageDialog(null,"Данные за '"+month+"' '"+year+"' года записаны" +
-                            "\nИтоговая стоимость:      '"+dataProcessing.totalPrice(lastData, newData)+"' руб.");
-                    addMonth.setText(null);
-                    addNewDataHotWaterInBathroom.setText(null);
-                    addNewDataColdWaterInBathroom.setText(null);
-                    addNewDataHotWaterInKitchen.setText(null);
-                    addNewDataColdWaterInKitchen.setText(null);
-                    addNewEnergyData.setText(null);
+                        DataProcessing dataProcessing = new DataProcessing();
+                        JOptionPane.showMessageDialog(null, "Данные за '" + month + "' '" + year + "' года записаны" +
+                                "\nИтоговая стоимость:      '" + dataProcessing.totalPrice(lastData, newData) + "' руб.");
+                        addMonth.setText(null);
+                        addNewDataHotWaterInBathroom.setText(null);
+                        addNewDataColdWaterInBathroom.setText(null);
+                        addNewDataHotWaterInKitchen.setText(null);
+                        addNewDataColdWaterInKitchen.setText(null);
+                        addNewEnergyData.setText(null);
+                    }
+                    catch (Exception emptyFields)
+                    {
+                        JOptionPane.showMessageDialog(null,"Поля не заполнены");
+                    }
                 }
                 catch (IOException ex)
                 {
