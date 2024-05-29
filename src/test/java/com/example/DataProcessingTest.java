@@ -12,7 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class LastDataProcessingTest
+public class DataProcessingTest
 {
     DataProcessing dataProcessing = new DataProcessing();
     @Mock
@@ -29,7 +29,7 @@ public class LastDataProcessingTest
         double actualResult = dataProcessing.priceHotWaterInBathroom(lastData, newData);
         double expectedResult = 291.79;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0.001);
+        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class LastDataProcessingTest
         double actualResult = dataProcessing.priceColdWaterInKitchen(lastData, newData);
         double expectedResult = 25_055.52;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0.0001);
+        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class LastDataProcessingTest
         double actualResult = dataProcessing.priceForWaterDrainage(lastData, newData);
         double expectedResult = 342_576.29;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0.00001);
+        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
     @Test
@@ -143,6 +143,6 @@ public class LastDataProcessingTest
         double actualResult = dataProcessing.totalPrice(lastData, newData);
         double expectedResult = 1_614_056.74;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0.011);
+        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 }

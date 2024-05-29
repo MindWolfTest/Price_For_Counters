@@ -60,11 +60,18 @@ public class Legacy extends JDialog
 
 
                     writeData.writeData(lastData, newData, rowNumber);
-                    JOptionPane.showMessageDialog(null,"Данные за '"+month+"' '"+year+"' года записаны");
+                    JOptionPane.showMessageDialog(null,"Данные за '"+month+"' '"+year+"' года записаны" +
+                            "\nИтоговая сумма '"++"'");
+                    addMonth.setText(null);
+                    addNewDataHotWaterInBathroom.setText(null);
+                    addNewDataColdWaterInBathroom.setText(null);
+                    addNewDataHotWaterInKitchen.setText(null);
+                    addNewDataColdWaterInKitchen.setText(null);
+                    addNewEnergyData.setText(null);
                 }
                 catch (IOException ex)
                 {
-                    JOptionPane.showMessageDialog(null,"Что то пошло не так");
+                    JOptionPane.showMessageDialog(null,"Что-то пошло не так");
                     throw new RuntimeException(ex);
                 }
             }
@@ -75,11 +82,7 @@ public class Legacy extends JDialog
     {
         JFrame jFrame = getFrame();
         jFrame.setContentPane(new Legacy().contentPane);
-        /*jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension dimension = toolkit.getScreenSize();
-        jFrame.setBounds(dimension.width/2 - 250, dimension.height/2 - 150, 500, 300);*/
+
         jFrame.revalidate();
 
         /*Legacy dialog = new Legacy();
