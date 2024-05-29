@@ -13,6 +13,7 @@ import java.io.IOException;
 import static com.example.edit.AddNewData.createNewData;
 import static com.example.edit.EditRow.createRowNumbers;
 import static com.example.edit.GetLastData.createLastData;
+import static com.example.frames.Frame.getFrame;
 
 public class Legacy extends JDialog
 {
@@ -72,13 +73,14 @@ public class Legacy extends JDialog
 
     public static void main(String[] args)
     {
-        JFrame jFrame = new JFrame("Legacy");
+        JFrame jFrame = getFrame();
         jFrame.setContentPane(new Legacy().contentPane);
-        jFrame.setVisible(true);
+        /*jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
-        jFrame.setBounds(dimension.width/2 - 250, dimension.height/2 - 150, 500, 300);
+        jFrame.setBounds(dimension.width/2 - 250, dimension.height/2 - 150, 500, 300);*/
+        jFrame.revalidate();
 
         /*Legacy dialog = new Legacy();
         dialog.pack();
