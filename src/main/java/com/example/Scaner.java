@@ -1,4 +1,4 @@
-package com.example;
+/*package com.example;
 
 import java.util.Scanner;
 
@@ -47,4 +47,4 @@ public class Scaner
         System.out.print("\nВведи показания счетчика за электричество:\t");
         return scanner.nextDouble();
     }
-}
+}*/

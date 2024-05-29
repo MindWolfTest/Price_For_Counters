@@ -2,7 +2,6 @@ package com.example.constants;
 
 public class ConstForCell
 {
-
     public static final int NUMBER_OF_SHEET = 0;
     public static final int NUMBER_OF_CELL_YEAR = 0;
     public static final int NUMBER_OF_CELL_MONTH = 1;
