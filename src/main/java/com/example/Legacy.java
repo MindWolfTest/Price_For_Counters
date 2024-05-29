@@ -84,11 +84,6 @@ public class Legacy extends JDialog
         jFrame.setContentPane(new Legacy().contentPane);
 
         jFrame.revalidate();
-
-        /*Legacy dialog = new Legacy();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);*/
     }
 
 }
