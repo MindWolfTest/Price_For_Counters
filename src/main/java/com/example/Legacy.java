@@ -1,11 +1,11 @@
 package com.example;
 
+import com.example.model.DataProcessing;
 import com.example.model.LastData;
 import com.example.model.NewData;
 import com.example.model.RowNumber;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -28,7 +28,6 @@ public class Legacy extends JDialog
     private JTextField addNewDataColdWaterInKitchen;
     private JTextField addNewEnergyData;
     private JButton addDataToFile;
-
     private JButton buttonOK;
 
     public Legacy()
@@ -41,6 +40,7 @@ public class Legacy extends JDialog
             @Override
             public void actionPerformed(ActionEvent e)
             {
+
                 WriteData writeData = new WriteData();
                 try
                 {
@@ -57,11 +57,11 @@ public class Legacy extends JDialog
 
                     NewData newData = createNewData(year, month, newDataCounterHotWaterInBathroom, newDataCounterColdWaterInBathroom,
                             newDataCounterHotWaterInKitchen, newDataCounterColdWaterInKitchen, newDataEnergyCounter);
-
-
                     writeData.writeData(lastData, newData, rowNumber);
+
+                    DataProcessing dataProcessing = new DataProcessing();
                     JOptionPane.showMessageDialog(null,"Данные за '"+month+"' '"+year+"' года записаны" +
-                            "\nИтоговая сумма '"++"'");
+                            "\nИтоговая стоимость:      '"+dataProcessing.totalPrice(lastData, newData)+"' руб.");
                     addMonth.setText(null);
                     addNewDataHotWaterInBathroom.setText(null);
                     addNewDataColdWaterInBathroom.setText(null);
