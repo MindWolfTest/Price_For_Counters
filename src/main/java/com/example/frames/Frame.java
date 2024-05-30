@@ -7,7 +7,7 @@ public class Frame
 {
     public static JFrame getFrame()
     {
-        JFrame jFrame = new JFrame("Показания счетчиков");
+        JFrame jFrame = new JFrame("Показания счетчиков\tv1.009");
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
