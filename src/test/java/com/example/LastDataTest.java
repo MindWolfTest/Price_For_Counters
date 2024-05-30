@@ -1,4 +1,4 @@
-/*package com.example;
+package com.example;
 
 import com.example.model.LastData;
 import org.junit.Test;
@@ -9,49 +9,7 @@ public class LastDataTest
 {
     LastData lastData = new LastData();
 
-    @Test
-    public void setGetLastRowTest()
-    {
-        lastData.setLastRow(24);
 
-        int actualResult = lastData.getLastRow();
-        int expectedResult = 24;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
-    }
-
-    @Test
-    public void setGetNewRowTest()
-    {
-        lastData.setNewRow(12);
-
-        int actualResult = lastData.getNewRow();
-        int expectedResult = 12;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
-    }
-
-    @Test
-    public void setGetYearTest()
-    {
-        lastData.setYear(2021);
-
-        int actualResult = lastData.getYear();
-        int expectedResult = 2021;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
-    }
-
-    @Test
-    public void setGetMonthTest()
-    {
-        lastData.setMonth("Месяц");
-
-        String actualResult = lastData.getMonth();
-        String expectedResult = "Месяц";
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult);
-    }
 
     @Test
     public void setGetLastCounterHotWaterInTheBathroomTest()
@@ -64,27 +22,9 @@ public class LastDataTest
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
-    @Test
-    public void setGetNewCounterHotWaterInTheBathroomTest()
-    {
-        lastData.setNewCounterHotWaterInBathroom(212.45);
 
-        double actualResult = lastData.getNewCounterHotWaterInBathroom();
-        double expectedResult = 212.45;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
-    }
 
-    @Test
-    public void setGetNewCounterColdWaterInBathroomTest()
-    {
-        lastData.setNewCounterColdWaterInBathroom(547.54);
-
-        double actualResult = lastData.getNewCounterColdWaterInBathroom();
-        double expectedResult = 547.54;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
-    }
 
     @Test
     public void setGetLastCounterColdWaterInBathroomTest()
@@ -97,16 +37,7 @@ public class LastDataTest
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
-    @Test
-    public void setGetNewCounterHotWaterInKitchenTest()
-    {
-        lastData.setNewCounterHotWaterInKitchen(548.6475);
 
-        double actualResult = lastData.getNewCounterHotWaterInKitchen();
-        double expectedResult = 548.6475;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
-    }
 
     @Test
     public void setGetLastCounterHotWaterInKitchenTest()
@@ -119,16 +50,7 @@ public class LastDataTest
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
-    @Test
-    public void setGetNewCounterColdWaterInKitchenTest()
-    {
-        lastData.setNewCounterColdWaterInKitchen(547.453);
 
-        double actualResult = lastData.getNewCounterColdWaterInKitchen();
-        double expectedResult = 547.453;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
-    }
 
     @Test
     public void setGetLastCounterColdWaterInKitchenTest()
@@ -141,16 +63,7 @@ public class LastDataTest
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 
-    @Test
-    public void setGetNewEnergyCounterTest()
-    {
-        lastData.setNewEnergyCounter(4787.23212);
 
-        double actualResult = lastData.getNewEnergyCounter();
-        double expectedResult = 4787.23212;
-
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
-    }
 
     @Test
     public void setGetLastEnergyCounterTest()
@@ -163,5 +76,3 @@ public class LastDataTest
         assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
     }
 }
-
- */

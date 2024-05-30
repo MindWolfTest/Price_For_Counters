@@ -42,6 +42,7 @@ public class Legacy extends JDialog
             {
 
                 WriteData writeData = new WriteData();
+
                 try
                 {
                     RowNumber rowNumber = createRowNumbers();
@@ -73,12 +74,12 @@ public class Legacy extends JDialog
                     }
                     catch (Exception emptyFields)
                     {
-                        JOptionPane.showMessageDialog(null,"Поля не заполнены");
+                        JOptionPane.showMessageDialog(null,"Что-то пошло не так");
                     }
                 }
                 catch (IOException ex)
                 {
-                    JOptionPane.showMessageDialog(null,"Что-то пошло не так");
+                    JOptionPane.showMessageDialog(null,"Файл не найден или занят");
                     throw new RuntimeException(ex);
                 }
             }
@@ -92,5 +93,4 @@ public class Legacy extends JDialog
 
         jFrame.revalidate();
     }
-
 }
