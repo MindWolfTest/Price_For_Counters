@@ -63,8 +63,8 @@ public class Legacy extends JDialog
                         writeData.writeData(lastData, newData, rowNumber);
 
                         DataProcessing dataProcessing = new DataProcessing();
-                        JOptionPane.showMessageDialog(null, "Данные за '" + month + "' '" + year + "' года записаны" +
-                                "\nИтоговая стоимость:      '" + dataProcessing.totalPrice(lastData, newData) + "' руб.");
+                        JOptionPane.showMessageDialog(null, "Данные за '" + month + "' '" + year + "' года записаны!" +
+                                "\nИтоговая стоимость:  '" + dataProcessing.totalPrice(lastData, newData) + "' руб.");
                         addMonth.setText(null);
                         addNewDataHotWaterInBathroom.setText(null);
                         addNewDataColdWaterInBathroom.setText(null);
