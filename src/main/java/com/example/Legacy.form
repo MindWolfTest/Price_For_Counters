@@ -147,6 +147,15 @@
                 <item value="Январь"/>
                 <item value="Февраль"/>
                 <item value="Март"/>
+                <item value="Апрель"/>
+                <item value="Май"/>
+                <item value="Июнь"/>
+                <item value="Июль"/>
+                <item value="Август"/>
+                <item value="Сентябрь"/>
+                <item value="Октябрь"/>
+                <item value="Ноябрь"/>
+                <item value="Декабрь"/>
               </model>
             </properties>
           </component>
