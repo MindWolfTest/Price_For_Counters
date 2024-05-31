@@ -21,7 +21,6 @@ public class Legacy extends JDialog
     private JLabel month;
     private JLabel year;
     private JTextField addYear;
-    //private JTextField addMonth;
     private JTextField addNewDataHotWaterInBathroom;
     private JTextField addNewDataColdWaterInBathroom;
     private JTextField addNewDataHotWaterInKitchen;
@@ -66,7 +65,7 @@ public class Legacy extends JDialog
                         DataProcessing dataProcessing = new DataProcessing();
                         JOptionPane.showMessageDialog(null, "Данные за " + month + " " + year + " года записаны!" +
                                 "\nИтоговая стоимость:  " + dataProcessing.totalPrice(lastData, newData) + " руб.");
-                        //addMonth.setText(null);
+
                         addNewDataHotWaterInBathroom.setText(null);
                         addNewDataColdWaterInBathroom.setText(null);
                         addNewDataHotWaterInKitchen.setText(null);
