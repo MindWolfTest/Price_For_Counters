@@ -12,7 +12,7 @@ public class Frame
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
-        jFrame.setBounds(dimension.width/2 - 250, dimension.height/2 - 150, 400, 300);
+        jFrame.setBounds(dimension.width/2 - 200, dimension.height/2 - 150, 400, 300);
         return jFrame;
     }
 }

@@ -9,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static com.example.constants.ConstantCounters.*;
+import static com.example.constants.ConstantPrice.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -23,126 +25,118 @@ public class DataProcessingTest
     @Test
     public void priceHotWaterInBathroomTest()
     {
-        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(133.38);
-        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(132.06);
+        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(NEW_COUNTER_HOT_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(LAST_COUNTER_HOT_WATER_IN_BATHROOM);
 
         double actualResult = dataProcessing.priceHotWaterInBathroom(lastData, newData);
-        double expectedResult = 320.97;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_HOT_WATER_IN_BATHROOM, actualResult, 0);
     }
 
     @Test
     public void priceColdWaterInBathroomTest()
     {
-        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(250.52);
-        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(247.44);
+        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(NEW_COUNTER_COLD_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(LAST_COUNTER_COLD_WATER_IN_BATHROOM);
 
         double actualResult = dataProcessing.priceColdWaterInBathroom(lastData, newData);
-        double expectedResult = 156.86;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_COLD_WATER_IN_BATHROOM, actualResult, 0);
     }
 
     @Test
     public void priceHotWaterInKitchenTest()
     {
-        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(16.34);
-        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(16.34);
+        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(NEW_COUNTER_HOT_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(LAST_COUNTER_HOT_WATER_IN_KITCHEN);
 
         double actualResult = dataProcessing.priceHotWaterInKitchen(lastData, newData);
-        double expectedResult = 0;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_HOT_WATER_IN_KITCHEN, actualResult, 0);
     }
 
     @Test
     public void priceColdWaterInKitchenTest()
     {
-        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(69.96);
-        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(68.55);
+        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(NEW_COUNTER_COLD_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(LAST_COUNTER_COLD_WATER_IN_KITCHEN);
 
         double actualResult = dataProcessing.priceColdWaterInKitchen(lastData, newData);
-        double expectedResult = 71.81;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_COLD_WATER_IN_KITCHEN, actualResult, 0);
     }
 
     @Test
     public void usedWaterCounterTest()
     {
-        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(133.38);
-        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(132.06);
+        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(NEW_COUNTER_HOT_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(LAST_COUNTER_HOT_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(250.52);
-        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(247.44);
+        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(NEW_COUNTER_COLD_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(LAST_COUNTER_COLD_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(16.34);
-        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(16.34);
+        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(NEW_COUNTER_HOT_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(LAST_COUNTER_HOT_WATER_IN_KITCHEN);
 
-        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(69.96);
-        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(68.55);
+        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(NEW_COUNTER_COLD_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(LAST_COUNTER_COLD_WATER_IN_KITCHEN);
 
         double actualResult = dataProcessing.usedWaterCounter(lastData, newData);
-        double expectedResult = 5.81;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_USED_WATER_DRAINAGE, actualResult, 0);
     }
 
     @Test
     public void priceForWaterDrainageTest()
     {
-        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(133.38);
-        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(132.06);
+        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(NEW_COUNTER_HOT_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(LAST_COUNTER_HOT_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(250.52);
-        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(247.44);
+        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(NEW_COUNTER_COLD_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(LAST_COUNTER_COLD_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(16.34);
-        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(16.34);
+        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(NEW_COUNTER_HOT_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(LAST_COUNTER_HOT_WATER_IN_KITCHEN);
 
-        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(69.96);
-        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(68.55);
+        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(NEW_COUNTER_COLD_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(LAST_COUNTER_COLD_WATER_IN_KITCHEN);
 
         double actualResult = dataProcessing.priceForWaterDrainage(lastData, newData);
-        double expectedResult = 232.23;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_FOR_WATER_DRAINAGE, actualResult, 0);
     }
 
     @Test
     public void priceForEnergyTest()
     {
-        Mockito.when(newData.getNewEnergyCounter()).thenReturn(13396.0);
-        Mockito.when(lastData.getLastEnergyCounter()).thenReturn(13184.0);
+        Mockito.when(newData.getNewEnergyCounter()).thenReturn(NEW_ENERGY_COUNTER);
+        Mockito.when(lastData.getLastEnergyCounter()).thenReturn(LAST_ENERGY_COUNTER);
 
         double actualResult = dataProcessing.priceForEnergy(lastData, newData);
-        double expectedResult = 1363.16;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_PRICE_FOR_ENERGY, actualResult, 0);
     }
 
     @Test
     public void totalPriceTest()
     {
-        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(133.38);
-        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(132.06);
+        Mockito.when(newData.getNewCounterHotWaterInBathroom()).thenReturn(NEW_COUNTER_HOT_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterHotWaterInBathroom()).thenReturn(LAST_COUNTER_HOT_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(250.52);
-        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(247.44);
+        Mockito.when(newData.getNewCounterColdWaterInBathroom()).thenReturn(NEW_COUNTER_COLD_WATER_IN_BATHROOM);
+        Mockito.when(lastData.getLastCounterColdWaterInBathroom()).thenReturn(LAST_COUNTER_COLD_WATER_IN_BATHROOM);
 
-        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(16.34);
-        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(16.34);
+        Mockito.when(newData.getNewCounterHotWaterInKitchen()).thenReturn(NEW_COUNTER_HOT_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterHotWaterInKitchen()).thenReturn(LAST_COUNTER_HOT_WATER_IN_KITCHEN);
 
-        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(69.96);
-        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(68.55);
+        Mockito.when(newData.getNewCounterColdWaterInKitchen()).thenReturn(NEW_COUNTER_COLD_WATER_IN_KITCHEN);
+        Mockito.when(lastData.getLastCounterColdWaterInKitchen()).thenReturn(LAST_COUNTER_COLD_WATER_IN_KITCHEN);
 
-        Mockito.when(newData.getNewEnergyCounter()).thenReturn(13396.0);
-        Mockito.when(lastData.getLastEnergyCounter()).thenReturn(13184.0);
+        Mockito.when(newData.getNewEnergyCounter()).thenReturn(NEW_ENERGY_COUNTER);
+        Mockito.when(lastData.getLastEnergyCounter()).thenReturn(LAST_ENERGY_COUNTER);
 
         double actualResult = dataProcessing.totalPrice(lastData, newData);
-        double expectedResult = 2145.03;
 
-        assertEquals("\nОшибка!\nрезультат не корректный", expectedResult, actualResult, 0);
+        assertEquals("\nОшибка!\nрезультат не корректный", RESULT_TOTAL_PRICE, actualResult, 0);
     }
 }
