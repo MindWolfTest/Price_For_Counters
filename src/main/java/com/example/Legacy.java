@@ -36,6 +36,9 @@ public class Legacy extends JDialog
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        Date date = new Date();
+        addYear.setText(String.valueOf(date.getCurrentYear()));
+        addMonth.setSelectedItem(date.getCurrentMonth());
         addDataToFile.addActionListener(new ActionListener()
         {
             @Override
