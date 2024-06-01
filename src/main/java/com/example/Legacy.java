@@ -8,8 +8,8 @@ import com.example.model.RowNumber;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 
 import static com.example.edit.AddNewData.createNewData;
 import static com.example.edit.EditRow.createRowNumbers;
@@ -41,14 +41,12 @@ public class Legacy extends JDialog
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
                 WriteData writeData = new WriteData();
 
                 try
                 {
                     RowNumber rowNumber = createRowNumbers();
                     LastData lastData = createLastData(rowNumber);
-
 
                     int year = Integer.parseInt(addYear.getText());
                     String month = (String) addMonth.getSelectedItem();
@@ -71,21 +69,27 @@ public class Legacy extends JDialog
                     addNewDataHotWaterInKitchen.setText(null);
                     addNewDataColdWaterInKitchen.setText(null);
                     addNewEnergyData.setText(null);
-                } catch (NoSuchFileException exception)
+                }
+
+                catch (FileNotFoundException fileNotFoundException)
                 {
-                    JOptionPane.showMessageDialog(null, "Файл не найден");
-                    throw new RuntimeException(exception);
-                } catch (NumberFormatException numberFormatException)
+                    JOptionPane.showMessageDialog(null, "Файл не найден или занят");
+                    throw new RuntimeException(fileNotFoundException);
+                }
+
+                catch (NumberFormatException numberFormatException)
                 {
                     JOptionPane.showMessageDialog(null, "Не правильный формат данных" +
                             "\nДробные числа вводятся через '.'" +
                             "\nПоле год целое число" +
                             "\nТак же требуется заполнить все поля");
                     throw new RuntimeException(numberFormatException);
-                } catch (IOException ex)
+                }
+
+                catch (IOException ioException)
                 {
                     JOptionPane.showMessageDialog(null, "Что-то пошло не так");
-                    throw new RuntimeException(ex);
+                    throw new RuntimeException(ioException);
                 }
             }
         });
@@ -95,7 +99,6 @@ public class Legacy extends JDialog
     {
         JFrame jFrame = getFrame();
         jFrame.setContentPane(new Legacy().contentPane);
-
         jFrame.revalidate();
     }
 }
