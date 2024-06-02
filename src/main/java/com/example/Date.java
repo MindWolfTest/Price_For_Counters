@@ -1,6 +1,7 @@
 package com.example;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 import static com.example.constants.ConstMonth.*;
 
@@ -13,7 +14,8 @@ public class Date
         return date.getYear();
     }
 
-    public String getCurrentMonth()
+    // Remove from exploitation
+    /*public String getCurrentMonth()
     {
         String month = String.valueOf(date.getMonth());
         switch (month)
@@ -56,5 +58,29 @@ public class Date
 
         }
         return month;
+    }*/
+
+    public HashMap<String, String> createHashMap()
+    {
+        HashMap<String, String> dateMap = new HashMap<>();
+        dateMap.put(JANUARY, RUS_JANUARY);
+        dateMap.put(FEBRUARY, RUS_FEBRUARY);
+        dateMap.put(MARCH, RUS_MARCH);
+        dateMap.put(APRIL, RUS_APRIL);
+        dateMap.put(MAY, RUS_MAY);
+        dateMap.put(JUNE, RUS_JUNE);
+        dateMap.put(JULY, RUS_JULY);
+        dateMap.put(AUGUST, RUS_AUGUST);
+        dateMap.put(SEPTEMBER, RUS_SEPTEMBER);
+        dateMap.put(OCTOBER,RUS_OCTOBER);
+        dateMap.put(NOVEMBER,RUS_NOVEMBER);
+        dateMap.put(DECEMBER, RUS_DECEMBER);
+        return dateMap;
+    }
+
+    public String getMonthNow()
+    {
+        String month = date.getMonth().name();
+        return createHashMap().get(month);
     }
 }

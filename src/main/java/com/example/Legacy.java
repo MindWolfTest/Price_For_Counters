@@ -38,7 +38,7 @@ public class Legacy extends JDialog
         getRootPane().setDefaultButton(buttonOK);
         Date date = new Date();
         addYear.setText(String.valueOf(date.getCurrentYear()));
-        addMonth.setSelectedItem(date.getCurrentMonth());
+        addMonth.setSelectedItem(date.getMonthNow());
         addDataToFile.addActionListener(new ActionListener()
         {
             @Override
@@ -84,7 +84,6 @@ public class Legacy extends JDialog
                 {
                     JOptionPane.showMessageDialog(null, "Не правильный формат данных" +
                             "\nДробные числа вводятся через '.'" +
-                            "\nПоле год целое число" +
                             "\nТак же требуется заполнить все поля");
                     throw new RuntimeException(numberFormatException);
                 }
@@ -100,8 +99,14 @@ public class Legacy extends JDialog
 
     public static void main(String[] args)
     {
+        long startTime = System.currentTimeMillis();
+        System.out.println(startTime);
         JFrame jFrame = getFrame();
         jFrame.setContentPane(new Legacy().contentPane);
         jFrame.revalidate();
+        long stopTime = System.currentTimeMillis();
+        System.out.println(stopTime);
+        long runTimeMS = stopTime - startTime;
+        System.out.println("Время выполнения программы:\t" + runTimeMS);
     }
 }
