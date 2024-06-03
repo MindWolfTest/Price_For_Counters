@@ -6,9 +6,9 @@ import static com.example.constants.ConstMonth.*;
 
 public class DateForFields
 {
-    LocalDateTime date = LocalDateTime.now();
+    static LocalDateTime date = LocalDateTime.now();
 
-    public int getCurrentYear()
+    public static int getCurrentYear()
     {
         try
         {
@@ -93,7 +93,7 @@ public class DateForFields
         return createHashMap().get(month);
     }*/
 
-    public String getMonthArr()
+    public static String getMonthArr()
     {
         String[] MonthArray = {RUS_JANUARY, RUS_FEBRUARY, RUS_MARCH, RUS_APRIL, RUS_MAY, RUS_JUNE, RUS_JULY,
                 RUS_AUGUST, RUS_SEPTEMBER, RUS_OCTOBER, RUS_NOVEMBER, RUS_DECEMBER};

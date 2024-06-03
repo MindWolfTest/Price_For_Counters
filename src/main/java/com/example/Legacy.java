@@ -32,9 +32,9 @@ public class Legacy extends JDialog
     {
         setContentPane(contentPane);
         setModal(true);
-        DateForFields dateForFields = new DateForFields();
-        addYear.setText(String.valueOf(dateForFields.getCurrentYear()));
-        addMonth.setSelectedItem(dateForFields.getMonthArr());
+        //DateForFields dateForFields = new DateForFields();
+        addYear.setText(String.valueOf(DateForFields.getCurrentYear()));
+        addMonth.setSelectedItem(DateForFields.getMonthArr());
         addDataToFile.addActionListener(new ActionListener()
         {
             @Override
