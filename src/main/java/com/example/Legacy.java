@@ -19,8 +19,6 @@ import static com.example.frames.Frame.getFrame;
 public class Legacy extends JDialog
 {
     private JPanel contentPane;
-    private JLabel month;
-    private JLabel year;
     private JTextField addYear;
     private JTextField addNewDataHotWaterInBathroom;
     private JTextField addNewDataColdWaterInBathroom;
@@ -29,13 +27,11 @@ public class Legacy extends JDialog
     private JTextField addNewEnergyData;
     private JButton addDataToFile;
     private JComboBox addMonth;
-    private JButton buttonOK;
 
     public Legacy()
     {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
         DateForFields dateForFields = new DateForFields();
         addYear.setText(String.valueOf(dateForFields.getCurrentYear()));
         addMonth.setSelectedItem(dateForFields.getMonthArr());
