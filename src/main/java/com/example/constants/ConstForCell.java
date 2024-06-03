@@ -5,6 +5,7 @@ public class ConstForCell
     public static final int NUMBER_OF_SHEET = 0;
     public static final int NUMBER_OF_CELL_YEAR = 0;
     public static final int NUMBER_OF_CELL_MONTH = 1;
+
     public static final int LAST_NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM =3;
     public static final int NUMBER_OF_CELL_COUNTER_HOT_WATER_IN_BATHROOM = 4;
     public static final int LAST_NUMBER_OF_CELL_COUNTER_COLD_WATER_IN_BATHROOM = 6;
