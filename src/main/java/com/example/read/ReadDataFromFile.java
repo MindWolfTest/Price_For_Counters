@@ -1,5 +1,6 @@
-package com.example.model;
+package com.example.read;
 
+import com.example.model.RowNumber;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
