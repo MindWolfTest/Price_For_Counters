@@ -6,7 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static com.example.constants.ConstForCell.*;
+import static com.example.constants.ConstForCell.NUMBER_OF_SHEET;
 import static com.example.constants.ConstForFileFolder.FILE_FOLDER;
 
 public class ReadDataFromFile
