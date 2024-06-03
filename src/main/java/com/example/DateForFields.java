@@ -1,17 +1,27 @@
 package com.example;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import static com.example.constants.ConstMonth.*;
 
-public class Date
+public class DateForFields
 {
     LocalDateTime date = LocalDateTime.now();
 
     public int getCurrentYear()
     {
-        return date.getYear();
+        try
+        {
+            return date.getYear();
+        }
+
+        catch (Exception exception)
+        {
+            return 2024;
+        }
+
     }
 
     // Remove from exploitation
@@ -60,7 +70,8 @@ public class Date
         return month;
     }*/
 
-    public HashMap<String, String> createHashMap()
+    // Remove from exploitation
+    /*public HashMap<String, String> createHashMap()
     {
         HashMap<String, String> dateMap = new HashMap<>();
         dateMap.put(JANUARY, RUS_JANUARY);
@@ -72,8 +83,8 @@ public class Date
         dateMap.put(JULY, RUS_JULY);
         dateMap.put(AUGUST, RUS_AUGUST);
         dateMap.put(SEPTEMBER, RUS_SEPTEMBER);
-        dateMap.put(OCTOBER,RUS_OCTOBER);
-        dateMap.put(NOVEMBER,RUS_NOVEMBER);
+        dateMap.put(OCTOBER, RUS_OCTOBER);
+        dateMap.put(NOVEMBER, RUS_NOVEMBER);
         dateMap.put(DECEMBER, RUS_DECEMBER);
         return dateMap;
     }
@@ -82,5 +93,22 @@ public class Date
     {
         String month = date.getMonth().name();
         return createHashMap().get(month);
+    }*/
+
+    public String getMonthArr()
+    {
+        String[] MonthArray = {RUS_JANUARY, RUS_FEBRUARY, RUS_MARCH, RUS_APRIL, RUS_MAY, RUS_JUNE, RUS_JULY,
+                RUS_AUGUST, RUS_SEPTEMBER, RUS_OCTOBER, RUS_NOVEMBER, RUS_DECEMBER};
+
+        try
+        {
+            int month = date.getMonthValue() - 1;
+            return MonthArray[month];
+        }
+
+        catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException)
+        {
+            return RUS_JANUARY;
+        }
     }
 }

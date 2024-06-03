@@ -36,9 +36,9 @@ public class Legacy extends JDialog
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        Date date = new Date();
-        addYear.setText(String.valueOf(date.getCurrentYear()));
-        addMonth.setSelectedItem(date.getMonthNow());
+        DateForFields dateForFields = new DateForFields();
+        addYear.setText(String.valueOf(dateForFields.getCurrentYear()));
+        addMonth.setSelectedItem(dateForFields.getMonthArr());
         addDataToFile.addActionListener(new ActionListener()
         {
             @Override
@@ -99,14 +99,14 @@ public class Legacy extends JDialog
 
     public static void main(String[] args)
     {
-        long startTime = System.currentTimeMillis();
-        System.out.println(startTime);
+//        long startTime = System.currentTimeMillis();
+//        System.out.println(startTime);
         JFrame jFrame = getFrame();
         jFrame.setContentPane(new Legacy().contentPane);
         jFrame.revalidate();
-        long stopTime = System.currentTimeMillis();
-        System.out.println(stopTime);
-        long runTimeMS = stopTime - startTime;
-        System.out.println("Время выполнения программы:\t" + runTimeMS);
+//        long stopTime = System.currentTimeMillis();
+//        System.out.println(stopTime);
+//        long runTimeMS = stopTime - startTime;
+//        System.out.println("Время выполнения программы:\t" + runTimeMS);
     }
 }

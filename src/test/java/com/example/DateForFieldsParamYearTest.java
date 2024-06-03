@@ -16,9 +16,9 @@ import java.time.ZoneId;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class DateParamYearTest
+public class DateForFieldsParamYearTest
 {
-    Date dateTest = new Date();
+    DateForFields dateForFieldsTest = new DateForFields();
 
     @Mock
     LocalDateTime date;
@@ -55,7 +55,7 @@ public class DateParamYearTest
         //date.getYear();
         Mockito.when(date.getYear()).thenReturn(year);
         //date.getYear();
-        int actualResult = dateTest.getCurrentYear();
+        int actualResult = dateForFieldsTest.getCurrentYear();
         assertEquals("\nОшибка!!!\nгод не совпадает!",expectedYear, actualResult);
     }
 }
