@@ -42,10 +42,10 @@ public class DataProcessing
     {
         double price = ((newData.getNewCounterColdWaterInKitchen() - lastData.getLastCounterColdWaterInKitchen()) * TAX_FOR_COLD_WATER);
 
-        BigDecimal bigDecimal = new BigDecimal(price);
-        bigDecimal = bigDecimal.setScale(SCALE, RoundingMode.HALF_UP);
+        /*BigDecimal bigDecimal = *///new BigDecimal(price);
+        //bigDecimal = bigDecimal.setScale(SCALE, RoundingMode.HALF_UP);
 
-        return bigDecimal.doubleValue();
+        return new BigDecimal(price).setScale(SCALE, RoundingMode.HALF_UP).doubleValue();
     }
 
     public double usedWaterCounter(LastData lastData, NewData newData)
