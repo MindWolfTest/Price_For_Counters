@@ -48,11 +48,23 @@ public class Legacy extends JDialog
 
                     int year = Integer.parseInt(addYear.getText());
                     String month = (String) addMonth.getSelectedItem();
-                    double newDataCounterHotWaterInBathroom = Double.parseDouble(addNewDataHotWaterInBathroom.getText());
-                    double newDataCounterColdWaterInBathroom = Double.parseDouble(addNewDataColdWaterInBathroom.getText());
-                    double newDataCounterHotWaterInKitchen = Double.parseDouble(addNewDataHotWaterInKitchen.getText());
-                    double newDataCounterColdWaterInKitchen = Double.parseDouble(addNewDataColdWaterInKitchen.getText());
-                    double newDataEnergyCounter = Double.parseDouble(addNewEnergyData.getText());
+
+                    double newDataCounterHotWaterInBathroom = Double.parseDouble(addNewDataHotWaterInBathroom
+                            .getText()
+                            .replaceAll("," ,"."));
+
+                    double newDataCounterColdWaterInBathroom = Double.parseDouble(addNewDataColdWaterInBathroom
+                            .getText()
+                            .replaceAll("," ,"."));
+                    double newDataCounterHotWaterInKitchen = Double.parseDouble(addNewDataHotWaterInKitchen
+                            .getText()
+                            .replaceAll("," ,"."));
+                    double newDataCounterColdWaterInKitchen = Double.parseDouble(addNewDataColdWaterInKitchen
+                            .getText()
+                            .replaceAll("," ,"."));
+                    double newDataEnergyCounter = Double.parseDouble(addNewEnergyData
+                            .getText()
+                            .replaceAll("," ,"."));
 
                     NewData newData = createNewData(year, month, newDataCounterHotWaterInBathroom, newDataCounterColdWaterInBathroom,
                             newDataCounterHotWaterInKitchen, newDataCounterColdWaterInKitchen, newDataEnergyCounter);
@@ -78,7 +90,6 @@ public class Legacy extends JDialog
                 catch (NumberFormatException numberFormatException)
                 {
                     JOptionPane.showMessageDialog(null, "Не правильный формат данных" +
-                            "\nДробные числа вводятся через '.'" +
                             "\nТак же требуется заполнить все поля");
                     throw new RuntimeException(numberFormatException);
                 }
