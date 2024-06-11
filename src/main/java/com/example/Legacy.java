@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import static com.example.constants.ConstForReplace.FOR_REPLACE;
+import static com.example.constants.ConstForReplace.REPLACEMENT;
 import static com.example.edit.AddNewData.createNewData;
 import static com.example.edit.EditRow.createRowNumbers;
 import static com.example.edit.GetLastData.createLastData;
@@ -51,20 +53,20 @@ public class Legacy extends JDialog
 
                     double newDataCounterHotWaterInBathroom = Double.parseDouble(addNewDataHotWaterInBathroom
                             .getText()
-                            .replaceAll("," ,"."));
+                            .replaceAll(FOR_REPLACE, REPLACEMENT));
 
                     double newDataCounterColdWaterInBathroom = Double.parseDouble(addNewDataColdWaterInBathroom
                             .getText()
-                            .replaceAll("," ,"."));
+                            .replaceAll(FOR_REPLACE, REPLACEMENT));
                     double newDataCounterHotWaterInKitchen = Double.parseDouble(addNewDataHotWaterInKitchen
                             .getText()
-                            .replaceAll("," ,"."));
+                            .replaceAll(FOR_REPLACE, REPLACEMENT));
                     double newDataCounterColdWaterInKitchen = Double.parseDouble(addNewDataColdWaterInKitchen
                             .getText()
-                            .replaceAll("," ,"."));
+                            .replaceAll(FOR_REPLACE, REPLACEMENT));
                     double newDataEnergyCounter = Double.parseDouble(addNewEnergyData
                             .getText()
-                            .replaceAll("," ,"."));
+                            .replaceAll(FOR_REPLACE, REPLACEMENT));
 
                     NewData newData = createNewData(year, month, newDataCounterHotWaterInBathroom, newDataCounterColdWaterInBathroom,
                             newDataCounterHotWaterInKitchen, newDataCounterColdWaterInKitchen, newDataEnergyCounter);
@@ -79,22 +81,16 @@ public class Legacy extends JDialog
                     addNewDataHotWaterInKitchen.setText(null);
                     addNewDataColdWaterInKitchen.setText(null);
                     addNewEnergyData.setText(null);
-                }
-
-                catch (FileNotFoundException fileNotFoundException)
+                } catch (FileNotFoundException fileNotFoundException)
                 {
                     JOptionPane.showMessageDialog(null, "Файл не найден или занят");
                     throw new RuntimeException(fileNotFoundException);
-                }
-
-                catch (NumberFormatException numberFormatException)
+                } catch (NumberFormatException numberFormatException)
                 {
                     JOptionPane.showMessageDialog(null, "Не правильный формат данных" +
                             "\nТак же требуется заполнить все поля");
                     throw new RuntimeException(numberFormatException);
-                }
-
-                catch (IOException ioException)
+                } catch (IOException ioException)
                 {
                     JOptionPane.showMessageDialog(null, "Что-то пошло не так");
                     throw new RuntimeException(ioException);
